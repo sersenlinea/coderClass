@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<%- include('./partials/head.ejs')  %> 
+  <body>
+    <% for( let i = 0; i < mascotas.length; i++ ) { %>
+      
+      <div class="card bg-dark text-white m-3" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title"><%= mascotas[i].name %> </h5>
+          <p class="card-text"><%= mascotas[i].org %> </p>
+          <p><%= mascotas[i].birth_year %> </p>
+        </div>
+      </div>
+    <% } %>
+  </body>
+</html>
