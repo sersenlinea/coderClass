@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Coder</title>
+    <script src="/socket.io/socket.io.js"></script>
+</head>
+<body>
+    <div >
+        <input type="text" id="texto">
+        <input id="btn" type="button" value="enviar"/>
+        <ul id="mensajes"></ul>
+    </div>
+    <script>
+        const socket = io();
+        socket.on('mensaje',(data)=>{
+        
+            let mensjaes = document.getElementById('mensajes');
+            data.forEach(element => {
+                mensjaes.innerHTML+=`<li>Id: ${element.id} Mensaje:${element.msg}</li>`;
+            });
+            
+            
+        })
+        document.getElementById("btn").addEventListener('click',()=>{
+                
+        socket.emit('notificacion',{id:"Luis",msg:document.getElementById("texto").value})
+        })
+    </script>
+</body>
+</html>
