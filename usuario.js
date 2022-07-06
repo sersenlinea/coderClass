@@ -1,0 +1,1 @@
+db.usuarios.insertOne({nombre:'Lucas',apellido:'Blanco',dni:'98678567'});
